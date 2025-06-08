@@ -20,6 +20,5 @@ It adds and removes items with smooth transitions using `AnimatedVisibility` and
 Clone the repo and open in Android Studio:
 
 ```bash
-git clone https://github.com/yourname/animated-actions-compose.git
-
+git clone https://github.com/evgennovatorov/AnimatedActions.git
 
