@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "AnimatedActions"
 include(":app")
- 
+include(":components")
