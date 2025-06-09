@@ -18,11 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.components.models.AnimatedActionModel
-
-data class ButtonModel(
-    val text: String,
-    val visible: Boolean = true
-)
+import com.example.components.models.ComponentModel
 
 @Composable
 fun AnimatedActions(
@@ -32,7 +28,7 @@ fun AnimatedActions(
 ) {
     val buttons = remember {
         items
-            .map { ButtonModel(it.name) }
+            .map { ComponentModel(it.name) }
             .toMutableStateList()
     }
 
@@ -40,13 +36,13 @@ fun AnimatedActions(
         when {
             buttons.size < items.size -> {
                 for (i in buttons.size until items.size) {
-                    buttons.add(ButtonModel(items[i].name))
+                    buttons.add(ComponentModel(items[i].name))
                 }
             }
             buttons.size > items.size -> {
                 for (i in 0  until buttons.size) {
                     buttons[i] = if (i < items.size) {
-                        ButtonModel(items[i].name, true)
+                        ComponentModel(items[i].name, true)
                     } else {
                         buttons[i].copy(visible = false)
                     }
@@ -54,7 +50,7 @@ fun AnimatedActions(
             }
             else -> {
                 for (i in items.indices) {
-                    buttons[i] = ButtonModel(items[i].name, true)
+                    buttons[i] = ComponentModel(items[i].name, true)
                 }
             }
         }
